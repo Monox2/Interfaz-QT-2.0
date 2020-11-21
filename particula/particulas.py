@@ -6,6 +6,15 @@ class Particulas:
     def __init__(self):
         self.__particulas = []
     
+    def ordenar_id(self):
+        self.__particulas.sort(key=lambda particula: particula.id)
+    
+    def ordenar_distancia(self):
+        self.__particulas.sort(key=lambda particula: particula.distancia, reverse=True)
+    
+    def ordenar_velocidad(self):
+        self.__particulas.sort(key=lambda particula: particula.velocidad)
+    
     def agregar_final(self, particula:Particula):
         self.__particulas.append(particula)
 

@@ -31,6 +31,37 @@ class MainWindow(QMainWindow):
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
 
+        self.ui.actionPor_id.triggered.connect(self.ordenar_id)
+        self.ui.actionPor_distancia.triggered.connect(self.ordenar_distancia)
+        self.ui.actionPor_velocidad.triggered.connect(self.ordenar_velocidad)
+
+    @Slot()
+    def ordenar_id(self):
+        self.particulas.ordenar_id()
+        QMessageBox.information(
+                self,
+                "Exito",
+                "Se ordeno el archivo por id " 
+            )
+   
+    @Slot()
+    def ordenar_distancia(self):
+        self.particulas.ordenar_distancia()
+        QMessageBox.information(
+                self,
+                "Exito",
+                "Se ordeno el archivo por distancia " 
+            )
+   
+    @Slot()
+    def ordenar_velocidad(self):
+        self.particulas.ordenar_velocidad()
+        QMessageBox.information(
+                self,
+                "Exito",
+                "Se ordeno el archivo por velocidad " 
+            )
+
     def wheelEvent(self, event):
         if event.delta() > 0:
             self.ui.graphicsView.scale(1.2, 1.2)
