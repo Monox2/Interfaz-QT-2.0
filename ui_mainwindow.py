@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(466, 471)
+        MainWindow.resize(545, 536)
         self.actionAbrir = QAction(MainWindow)
         self.actionAbrir.setObjectName(u"actionAbrir")
         self.actionGuardar = QAction(MainWindow)
@@ -192,13 +192,33 @@ class Ui_MainWindow(object):
         self.gridLayout_4.addWidget(self.mostrar_tabla_pushButton, 1, 2, 1, 1)
 
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayout_5 = QGridLayout(self.tab_3)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.graphicsView = QGraphicsView(self.tab_3)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.gridLayout_5.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.dibujar = QPushButton(self.tab_3)
+        self.dibujar.setObjectName(u"dibujar")
+
+        self.gridLayout_5.addWidget(self.dibujar, 1, 0, 1, 1)
+
+        self.limpiar = QPushButton(self.tab_3)
+        self.limpiar.setObjectName(u"limpiar")
+
+        self.gridLayout_5.addWidget(self.limpiar, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_3, "")
 
         self.gridLayout_3.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 466, 21))
+        self.menubar.setGeometry(QRect(0, 0, 545, 21))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
         MainWindow.setMenuBar(self.menubar)
@@ -212,7 +232,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         self.agregar_final_pushButton.setDefault(False)
 
 
@@ -248,6 +268,9 @@ class Ui_MainWindow(object):
         self.buscar_PushButton.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.mostrar_tabla_pushButton.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
+        self.dibujar.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
+        self.limpiar.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Dibujo", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 
