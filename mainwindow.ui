@@ -287,6 +287,7 @@
     </widget>
     <addaction name="actionAbrir"/>
     <addaction name="actionGuardar"/>
+    <addaction name="actionMostrar_diccionario"/>
     <addaction name="menuOrdenar"/>
    </widget>
    <addaction name="menuArchivo"/>
@@ -321,6 +322,14 @@
   <action name="actionPor_velocidad">
    <property name="text">
     <string>Por velocidad</string>
+   </property>
+  </action>
+  <action name="actionMostrar_diccionario">
+   <property name="text">
+    <string>Mostrar diccionario</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
    </property>
   </action>
  </widget>

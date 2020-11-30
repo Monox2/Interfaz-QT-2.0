@@ -6,6 +6,8 @@ from particula.particula import Particula
 from particula.algoritmos import distancia_euclidiana
 from PySide2.QtGui import QPen, QColor, QTransform
 from random import randint
+from pprint import pprint
+from pprint import pformat
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -34,6 +36,18 @@ class MainWindow(QMainWindow):
         self.ui.actionPor_id.triggered.connect(self.ordenar_id)
         self.ui.actionPor_distancia.triggered.connect(self.ordenar_distancia)
         self.ui.actionPor_velocidad.triggered.connect(self.ordenar_velocidad)
+
+        self.ui.actionMostrar_diccionario.triggered.connect(self.mostrar_diccionario)
+
+    @Slot()
+    def mostrar_diccionario(self):
+        self.ui.salida.clear()
+        self.ui.salida.insertPlainText(self.particulas.mostrar_diccionario())
+        QMessageBox.information(
+                self,
+                "Exito",
+                "Se imprimio el diccionario " 
+            )
 
     @Slot()
     def ordenar_id(self):
@@ -71,12 +85,9 @@ class MainWindow(QMainWindow):
     @Slot()
     def dibujar(self):
         pen = QPen ()
-        pen.setWidth(4)
+        pen.setWidth(3)
         for particula in self.particulas:
-            r = randint(0, 255)
-            g = randint(0, 255)
-            b = randint(0, 255)
-            color = QColor(r, g ,b)
+            color = QColor(particula.red, particula.green ,particula.blue)
             pen.setColor(color)
 
             self.scene.addEllipse(particula.origen_x, particula.origen_y, 3, 3, pen)
